@@ -19,7 +19,7 @@ object MetricKey {
 
   case class TransportationMode(override val  value: String) extends MetricKey[String]("transportation_mode", value)
 
-  case class TravelTime(override val  value: Int) extends MetricKey[Int]("transportation_mode", value)
+  case class TravelTime(override val  value: Int) extends MetricKey[Int]("travel_time", value)
 
   case class RequestPath(override val  value: String) extends MetricKey[String]("request_path", value)
 

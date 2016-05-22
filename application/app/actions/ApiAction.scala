@@ -8,14 +8,12 @@ import util.MetricKey
 import play.api.libs.concurrent.Execution.Implicits._
 
 import scala.concurrent.Future
+import scala.util.Random
 
 class ApiRequest[A](val requestId: String, request: Request[A]) extends WrappedRequest[A](request)
 
 object ApiAction extends ActionBuilder[ApiRequest] {
   def invokeBlock[A](request: Request[A], block: (ApiRequest[A]) => Future[Result]) = {
-    println(request.toString())
-    println(request.headers)
-
     val startTime = System.currentTimeMillis
 
     val requestId = UUID.randomUUID().toString
@@ -25,7 +23,7 @@ object ApiAction extends ActionBuilder[ApiRequest] {
     result.onComplete { r =>
       val endTime = System.currentTimeMillis()
       metricsLogger.logMetrics(requestId, Set(
-        MetricKey.ResponseTime(endTime - startTime),
+        MetricKey.ResponseTime(endTime - startTime + Random.nextInt(100)),
         MetricKey.StatusCode(r.get.header.status),
         MetricKey.RequestBody(request.body.toString),
         MetricKey.RequestPath(request.path)

@@ -4,7 +4,7 @@ filebeat:
       paths:
         - "/home/n3ziniuka5/projects/DevOpsPro2016/application/logs/metrics.log"
 
-      scan_frequency: 0s
+      scan_frequency: 5s
 
       document_type: my_app_metrics
  
@@ -12,7 +12,7 @@ filebeat:
       paths:
         - "/home/n3ziniuka5/projects/DevOpsPro2016/application/logs/application.log"
 
-      scan_frequency: 0s
+      scan_frequency: 5s
 
       document_type: my_app_trace
 
