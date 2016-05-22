@@ -1,0 +1,21 @@
+filebeat:
+  prospectors:
+    -
+      paths:
+        - "/home/n3ziniuka5/projects/DevOpsPro2016/application/logs/metrics.log"
+
+      scan_frequency: 0s
+
+      document_type: my_app_metrics
+ 
+    -
+      paths:
+        - "/home/n3ziniuka5/projects/DevOpsPro2016/application/logs/application.log"
+
+      scan_frequency: 0s
+
+      document_type: my_app_trace
+
+output:
+  logstash:
+    hosts: ["127.0.0.1:5044"]
