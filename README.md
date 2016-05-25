@@ -60,7 +60,7 @@ Start with the included configuration file:
 
 ### Filebeat installation
 
-Copy `filebeat.yml` to the extracted location and run filesbeat.
+Copy `filebeat.yml` to the extracted location and run filebeat.
 
 ### Kibana installation
 
